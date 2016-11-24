@@ -9,7 +9,7 @@ Kool Store Template
 http://www.templatemo.com/preview/templatemo_428_kool_store
 -->
     <meta charset="utf-8">
-    <title>Kool Store - Responsive eCommerce Template</title>
+    <title>Future Clearance & Settlement Group</title>
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
