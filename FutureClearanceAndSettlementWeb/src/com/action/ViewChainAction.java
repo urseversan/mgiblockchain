@@ -9,7 +9,7 @@ package com.action;
  */
 import com.opensymphony.xwork2.Action;
 
-public class ContactAction implements Action {
+public class ViewChainAction implements Action {
 
     @Override
     public String execute() throws Exception {

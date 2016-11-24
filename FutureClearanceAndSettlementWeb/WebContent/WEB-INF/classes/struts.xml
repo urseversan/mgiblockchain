@@ -18,7 +18,7 @@
 		<action name="members" class="com.action.ParticipantsAction">
 			<result name="SUCCESS">members.jsp</result>
 		</action>
-		<action name="viewchain" class="com.action.ContactAction">
+		<action name="viewchain" class="com.action.ViewChainAction">
 			<result name="SUCCESS">viewchain.jsp</result>
 		</action>
 	</package>
