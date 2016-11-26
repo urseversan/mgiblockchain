@@ -11,6 +11,10 @@
 		</action>
 		<action name="login" class="com.action.LoginAction">
 			<result name="SUCCESS">home.jsp</result>
+			<result name="ERROR">home.jsp</result>
+		</action>
+		<action name="logout" class="com.action.LoginAction" method="logout">
+			<result name="SUCCESS">home.jsp</result>
 		</action>
 		<action name="audit" class="com.action.AuditAction">
 			<result name="SUCCESS">audit.jsp</result>

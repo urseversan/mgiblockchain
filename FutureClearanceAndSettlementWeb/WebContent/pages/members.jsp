@@ -38,7 +38,7 @@ http://www.templatemo.com/preview/templatemo_428_kool_store
                 <div class="row">
                     <div class="col-md-6 col-sm-6">
                         <div class="top-header-left">
-                            <a href="#">Log In</a>
+                             <a href="logout">Log Out</a>
                         </div> <!-- /.top-header-left -->
                     </div> <!-- /.col-md-6 -->
                     <div class="col-md-6 col-sm-6">
@@ -226,36 +226,36 @@ http://www.templatemo.com/preview/templatemo_428_kool_store
                 </div> <!-- /.row -->
             </div> <!-- /.container -->
         </div> <!-- /.our-partner -->
-        <div class="main-footer">
+        <!-- <!-- <div class="main-footer">
             <div class="container">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="footer-widget">
                           
-                        </div> <!-- /.footer-widget -->
-                    </div> <!-- /.col-md-3 -->
+                        </div> /.footer-widget
+                    </div> /.col-md-3
                     <div class="col-md-3">
                         <div class="footer-widget">
                           
-                        </div> <!-- /.footer-widget -->
-                    </div> <!-- /.col-md-3 -->
+                        </div> /.footer-widget
+                    </div> /.col-md-3
                     <div class="col-md-2">
                         
-                    </div> <!-- /.col-md-2 -->
+                    </div> /.col-md-2
                     <div class="col-md-4">
                         <div class="footer-widget">
                             
-                        </div> <!-- /.footer-widget -->
-                    </div> <!-- /.col-md-4 -->
-                </div> <!-- /.row -->
-            </div> <!-- /.container -->
-        </div> <!-- /.main-footer -->
+                        </div> /.footer-widget
+                    </div> /.col-md-4
+                </div> /.row
+            </div> /.container
+        </div> /.main-footer --> -->
         <div class="bottom-footer">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <span>Copyright &copy; 2084 <a href="#">Company Name</a> | Design: <a href="http://www.templatemo.com">templatemo</a></span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, expedita soluta mollitia accusamus ut architecto maiores cum fugiat. Pariatur ipsum officiis fuga deleniti alias quia nostrum veritatis enim doloremque eligendi?</p>
+                        <span>Copyright &copy; 2016 <a href="home.action">FUTURE CLEARANCE & SETTLEMENT GROUP</a> | Design: <a href="http://www.templatemo.com">templatemo</a></span>
+                        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, expedita soluta mollitia accusamus ut architecto maiores cum fugiat. Pariatur ipsum officiis fuga deleniti alias quia nostrum veritatis enim doloremque eligendi?</p> -->
                     </div> <!-- /.col-md-12 -->
                 </div> <!-- /.row -->
             </div> <!-- /.container -->
