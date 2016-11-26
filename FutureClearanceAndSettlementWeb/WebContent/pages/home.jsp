@@ -1,3 +1,4 @@
+<%@ taglib uri="/struts-tags" prefix="s" %>  
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -36,12 +37,19 @@ http://www.templatemo.com/preview/templatemo_428_kool_store
         <div class="top-header">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 col-sm-6">
-                        <div class="top-header-left">
-                            <a href="home.action">Log In</a>
-                        </div> <!-- /.top-header-left -->
-                    </div> <!-- /.col-md-6 -->
-                    <div class="col-md-6 col-sm-6">
+                    <div class="col-md-6 col-sm-6">                        
+                        <s:if test="isLogin()">
+	                        <div class="top-header-left">
+	                            <a href="logout.action">Log out</a>
+	                        </div> <!-- /.top-header-left -->
+                         </s:if>
+                        <s:else>
+	                        <div class="top-header-left">
+	                            <a href="home.action">Log In</a>
+	                        </div> <!-- /.top-header-left -->                       
+                       </s:else> 
+                    </div> <!-- /.col-md-6 -->        
+				    <div class="col-md-6 col-sm-6">
                         <div class="social-icons">
                             <ul>
                                 <li><a href="#" class="fa fa-facebook"></a></li>
@@ -68,27 +76,35 @@ http://www.templatemo.com/preview/templatemo_428_kool_store
             </div> <!-- /.container -->
         </div> <!-- /.main-header -->
         <div class="main-nav">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-sm-4">
-                        <div class="list-menu">
-                            <ul>
-                                <li><a href="home.action">Home</a></li>
-                                <li><a href="members.action">Group Members</a></li>
-                                <li><a href="audit.action">Audit Ledger</a></li>
-                                <li><a href="viewchain.action">View Chain</a></li>
-                            </ul>
-                        </div> <!-- /.list-menu -->
-                    </div> <!-- /.col-md-6 -->
-                    
-                </div> <!-- /.row -->
-            </div> <!-- /.container -->
+        	<s:if test="isLogin()">
+	            <div class="container">
+	                <div class="row">
+	                    <div class="col-md-8 col-sm-4">
+	                        <div class="list-menu">
+	                            <ul>
+	                                <li><a href="#">Home</a></li>
+	                                <li><a href="members.action">Group Members</a></li>
+	                                <li><a href="audit.action">Audit Ledger</a></li>
+	                                <li><a href="viewchain.action">View Chain</a></li>
+	                            </ul>
+	                        </div> <!-- /.list-menu -->
+	                    </div> <!-- /.col-md-6 -->
+	                    
+	                </div> <!-- /.row -->
+	            </div> <!-- /.container -->
+	        </s:if>
         </div> <!-- /.main-nav -->
     </header> <!-- /.site-header -->
 
     <div class="content-section">
         <div class="container">
             <div class="row">
+            	<s:if test="hasActionMessages()">
+					<div class="welcome">
+	 					<s:actionmessage/>
+			   		</div>
+				</s:if>
+				<s:if test ="isLogin()">    
                 <div class="col-md-3">
                     <div class="product-item-1">
                         <div class="product-thumb">
@@ -129,56 +145,79 @@ http://www.templatemo.com/preview/templatemo_428_kool_store
                         <div class="clearfix"></div>
                     </div> <!-- /.product-holder -->
                 </div> <!-- /.col-md-5 -->
+                </s:if>
                 <div class="col-md-4">
                     <div class="product-item-3">
-                        <div class="product-thumb">
-                            <img src="images/featured/6.jpg" alt="">
-                        </div> <!-- /.product-thumb -->
-                        <div class="product-content">
-                            <div class="row">
-                                <div class="col-md-6 col-sm-6">
-                                    <h5><a href="#">Name Of Shirt</a></h5>
-                                    <span class="tagline">Partner Name</span>
-                                    <span class="price">$20.00</span>
-                                </div> <!-- /.col-md-6 -->
-                                <div class="col-md-6 col-sm-6">
-                                    <div class="full-row">
-                                        <label for="cat">Gender:</label>
-                                        <select name="cat" id="cat" class="postform">
-                                            <option value="-1">- Select -</option>
-                                            <option class="level-0" value="49">Female</option>
-                                            <option class="level-0" value="56">Male</option>
-                                        </select>
-                                    </div>
-                                    <div class="full-row">
-                                        <label for="cat1">Size:</label>
-                                        <select name="cat1" id="cat1" class="postform">
-                                            <option value="-1">- Select -</option>
-                                            <option class="level-0" value="49">Small</option>
-                                            <option class="level-0" value="49">Medium</option>
-                                            <option class="level-0" value="56">Large</option>
-                                            <option class="level-0" value="56">X-Large</option>
-                                        </select>
-                                    </div>
-                                    <div class="full-row">
-                                        <label for="cat2">Color:</label>
-                                        <select name="cat2" id="cat2" class="postform">
-                                            <option value="-1">- Select -</option>
-                                            <option class="level-0" value="2">Blue</option>
-                                            <option class="level-0" value="3">Red</option>
-                                            <option class="level-0" value="1">Pink</option>
-                                            <option class="level-0" value="4">Black</option>
-                                            <option class="level-0" value="4">Wlack</option>
-                                        </select>
-                                    </div>
-                                </div> <!-- /.col-md-6 -->
-                                <div class="col-md-12 col-sm-12">
-                                    <div class="button-holder">
-                                        <a href="#" class="red-btn"><i class="fa fa-angle-down"></i></a>
-                                    </div> <!-- /.button-holder -->
-                                </div> <!-- /.col-md-12 -->
-                            </div> <!-- /.row -->
-                        </div> <!-- /.product-content -->
+                    	<s:if test="isLogin()"> 
+                    		<div class="product-thumb">
+	                            <img src="images/featured/6.jpg" alt="">
+	                        </div> <!-- /.product-thumb -->
+	                        <div class="product-content">
+	                            <div class="row">
+	                                <div class="col-md-6 col-sm-6">
+	                                    <h5><a href="#">Name Of Shirt</a></h5>
+	                                    <span class="tagline">Partner Name</span>
+	                                    <span class="price">$20.00</span>
+	                                </div> <!-- /.col-md-6 -->
+	                                <div class="col-md-6 col-sm-6">
+	                                    <div class="full-row">
+	                                        <label for="cat">Gender:</label>
+	                                        <select name="cat" id="cat" class="postform">
+	                                            <option value="-1">- Select -</option>
+	                                            <option class="level-0" value="49">Female</option>
+	                                            <option class="level-0" value="56">Male</option>
+	                                        </select>
+	                                    </div>
+	                                    <div class="full-row">
+	                                        <label for="cat1">Size:</label>
+	                                        <select name="cat1" id="cat1" class="postform">
+	                                            <option value="-1">- Select -</option>
+	                                            <option class="level-0" value="49">Small</option>
+	                                            <option class="level-0" value="49">Medium</option>
+	                                            <option class="level-0" value="56">Large</option>
+	                                            <option class="level-0" value="56">X-Large</option>
+	                                        </select>
+	                                    </div>
+	                                    <div class="full-row">
+	                                        <label for="cat2">Color:</label>
+	                                        <select name="cat2" id="cat2" class="postform">
+	                                            <option value="-1">- Select -</option>
+	                                            <option class="level-0" value="2">Blue</option>
+	                                            <option class="level-0" value="3">Red</option>
+	                                            <option class="level-0" value="1">Pink</option>
+	                                            <option class="level-0" value="4">Black</option>
+	                                            <option class="level-0" value="4">Wlack</option>
+	                                        </select>
+	                                    </div>
+	                                </div> <!-- /.col-md-6 -->
+	                                <div class="col-md-12 col-sm-12">
+	                                    <div class="button-holder">
+	                                        <a href="#" class="red-btn"><i class="fa fa-angle-down"></i></a>
+	                                    </div> <!-- /.button-holder -->
+	                                </div> <!-- /.col-md-12 -->
+	                            </div><!--  /.row -->
+	                        </div><!--  /.product-content -->                    	
+						</s:if>
+						<s:else>
+	                        <div class="form-style-5">
+	                    		<s:if test="hasActionErrors()">
+								   <div class="errors">
+								      <s:actionerror/>
+								   </div>
+								</s:if>
+		                    	<s:form action="login"> 
+									<fieldset>
+										<legend> User Login </legend>
+											<!-- <input type="text" name="field1" placeholder="User Name">
+											<input type="password" name="field2" placeholder="Password"> -->										
+											<s:textfield name="username" label="Name" placeholder="User Name"></s:textfield>  
+											<s:password name="password" label="Password" placeholder="Password"></s:password>						      
+									</fieldset>							
+									<!-- <input type="submit" value="Apply" /> -->
+									<s:submit value="Login"></s:submit>	
+								</s:form> 
+							</div> <!-- /.form-style-5 -->
+	                	</s:else>
                     </div> <!-- /.product-item-3 -->
                 </div> <!-- /.col-md-4 -->
             </div> <!-- /.row -->
@@ -226,36 +265,36 @@ http://www.templatemo.com/preview/templatemo_428_kool_store
                 </div> <!-- /.row -->
             </div> <!-- /.container -->
         </div> <!-- /.our-partner -->
-        <div class="main-footer">
+        <!-- <div class="main-footer">
             <div class="container">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="footer-widget">
                           
-                        </div> <!-- /.footer-widget -->
-                    </div> <!-- /.col-md-3 -->
+                        </div> /.footer-widget
+                    </div> /.col-md-3
                     <div class="col-md-3">
                         <div class="footer-widget">
                           
-                        </div> <!-- /.footer-widget -->
-                    </div> <!-- /.col-md-3 -->
+                        </div> /.footer-widget
+                    </div> /.col-md-3
                     <div class="col-md-2">
                         
-                    </div> <!-- /.col-md-2 -->
+                    </div> /.col-md-2
                     <div class="col-md-4">
                         <div class="footer-widget">
                             
-                        </div> <!-- /.footer-widget -->
-                    </div> <!-- /.col-md-4 -->
-                </div> <!-- /.row -->
-            </div> <!-- /.container -->
-        </div> <!-- /.main-footer -->
+                        </div> /.footer-widget
+                    </div> /.col-md-4
+                </div> /.row
+            </div> /.container
+        </div> /.main-footer -->
         <div class="bottom-footer">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <span>Copyright &copy; 2084 <a href="#">Company Name</a> | Design: <a href="http://www.templatemo.com">templatemo</a></span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, expedita soluta mollitia accusamus ut architecto maiores cum fugiat. Pariatur ipsum officiis fuga deleniti alias quia nostrum veritatis enim doloremque eligendi?</p>
+                        <span>Copyright &copy; 2016 <a href="home.action">FUTURE CLEARANCE & SETTLEMENT GROUP</a> | Design: <a href="http://www.templatemo.com">templatemo</a></span>
+                        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, expedita soluta mollitia accusamus ut architecto maiores cum fugiat. Pariatur ipsum officiis fuga deleniti alias quia nostrum veritatis enim doloremque eligendi?</p> -->
                     </div> <!-- /.col-md-12 -->
                 </div> <!-- /.row -->
             </div> <!-- /.container -->
