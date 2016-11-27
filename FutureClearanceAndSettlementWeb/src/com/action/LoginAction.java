@@ -3,6 +3,7 @@
  */
 package com.action;
 
+import com.database.DataHelper;
 /**
  * @author Niranjan
  *
@@ -47,9 +48,11 @@ public class LoginAction extends ActionSupport implements Action, SessionAware{
     
 	private boolean validateLogin(String username, String password){
     	if (validateString(username) && validateString(password)){
-    		if(username.equalsIgnoreCase("blockchain") && password.equalsIgnoreCase("blockchain")){
+    		String role = DataHelper.mockLogin(username, password);
+    		if(role!=null){
+    			sessionMap.put("role",role); 
     			return true;
-    		}  
+    		}  			
     	}
     	return false;
     }

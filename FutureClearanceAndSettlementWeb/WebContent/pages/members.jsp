@@ -68,21 +68,27 @@ http://www.templatemo.com/preview/templatemo_428_kool_store
             </div> <!-- /.container -->
         </div> <!-- /.main-header -->
         <div class="main-nav">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-sm-4">
-                        <div class="list-menu">
-                            <ul>
-                                <li><a href="home.action">Home</a></li>
-                                <li><a href="members.action">Group Members</a></li>
-                                <li><a href="audit.action">Audit Ledger</a></li>
-                                <li><a href="viewchain.action">View Chain</a></li>
-                            </ul>
-                        </div> <!-- /.list-menu -->
-                    </div> <!-- /.col-md-6 -->
-                    
-                </div> <!-- /.row -->
-            </div> <!-- /.container -->
+             <div class="container">
+	                <div class="row">
+	                    <div class="col-md-8 col-sm-4">
+	                        <div class="list-menu">
+	                            <ul>
+	                                <li><a href="home.action">Home</a></li>
+	                                <s:if test="%{#session.login ==true}">
+	                                	 <s:if test="%{#session.role =='caadmin'}">
+		                                	<li><a href="members.action">Group Members</a></li>
+		                                	<li><a href="viewchain.action">View Chain</a></li>
+		                                 </s:if>
+		                              	 <s:if test="%{#session.role !='caadmin'}">
+		                              		<li><a href="audit.action">Audit Ledger</a></li>
+		                                 </s:if>			                                
+		                            </s:if>    
+	                            </ul>
+	                        </div> <!-- /.list-menu -->
+	                    </div> <!-- /.col-md-6 -->
+	                    
+	                </div> <!-- /.row -->
+	            </div> <!-- /.container -->
         </div> <!-- /.main-nav -->
     </header> <!-- /.site-header -->
 
