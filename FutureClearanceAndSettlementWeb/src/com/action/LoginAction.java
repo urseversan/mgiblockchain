@@ -3,6 +3,7 @@
  */
 package com.action;
 
+import com.database.DataHelper;
 /**
  * @author Niranjan
  *
@@ -21,8 +22,7 @@ public class LoginAction extends ActionSupport implements Action, SessionAware{
     //Java Bean to hold the form parameters
     private String username;
     private String password;
-    SessionMap<String,String> sessionmap;
-    private boolean login;
+    private Map<String, Object> sessionMap;
 
     public String getUsername() {
         return username;
@@ -46,45 +46,42 @@ public class LoginAction extends ActionSupport implements Action, SessionAware{
         return false;
     }    
     
-    public boolean isLogin() {
-		return login;
-	}
-
-	public void setLogin(boolean login) {
-		this.login = login;
-	}
-
 	private boolean validateLogin(String username, String password){
     	if (validateString(username) && validateString(password)){
-    		if(username.equalsIgnoreCase("blockchain") && password.equalsIgnoreCase("blockchain")){
+    		String role = DataHelper.mockLogin(username, password);
+    		if(role!=null){
+    			sessionMap.put("role",role); 
     			return true;
-    		}  
+    		}  			
     	}
     	return false;
     }
     
     @Override
     public String execute() throws Exception {
-        if (validateLogin(getUsername(),getPassword())){
-        	addActionMessage("Welcome user!");
-        	setLogin(true);        	
-        	return "SUCCESS";
+    	if (validateLogin(getUsername(),getPassword())){
+           	addActionMessage("Welcome user!");
+           	sessionMap.put("login",true); 		
+           	return "SUCCESS";
         }            
         else{
-        	addActionError("Invalid Username or password");
-        	return "ERROR";
+          	addActionError("Invalid Username or password");
+           	return "ERROR";
         } 
     }
     
+    
 	@SuppressWarnings("unchecked")
-	public void setSession(Map map) {		
-		sessionmap=(SessionMap)map;  
-	    sessionmap.put("login","true"); 		
+	@Override
+	public void setSession(Map<String, Object> sessionMap) {
+		this.sessionMap = sessionMap;
 	}
 	
 	public String logout(){
-		setLogin(false);
-	    sessionmap.invalidate();  
+		if(sessionMap.containsKey("login")) {
+			sessionMap.remove("login");  
+		}
+		
 	    return "SUCCESS";  
 	}  
 }

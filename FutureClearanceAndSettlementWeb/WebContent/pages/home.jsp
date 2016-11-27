@@ -38,7 +38,7 @@ http://www.templatemo.com/preview/templatemo_428_kool_store
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-sm-6">                        
-                        <s:if test="isLogin()">
+                        <s:if test="%{#session.login ==true}">  
 	                        <div class="top-header-left">
 	                            <a href="logout.action">Log out</a>
 	                        </div> <!-- /.top-header-left -->
@@ -76,23 +76,29 @@ http://www.templatemo.com/preview/templatemo_428_kool_store
             </div> <!-- /.container -->
         </div> <!-- /.main-header -->
         <div class="main-nav">
-        	<s:if test="isLogin()">
+        	
 	            <div class="container">
 	                <div class="row">
 	                    <div class="col-md-8 col-sm-4">
 	                        <div class="list-menu">
 	                            <ul>
-	                                <li><a href="#">Home</a></li>
-	                                <li><a href="members.action">Group Members</a></li>
-	                                <li><a href="audit.action">Audit Ledger</a></li>
-	                                <li><a href="viewchain.action">View Chain</a></li>
+	                                <li><a href="home.action">Home</a></li>
+	                                <s:if test="%{#session.login ==true}">
+	                                	 <s:if test="%{#session.role =='caadmin'}">
+		                                	<li><a href="members.action">Group Members</a></li>
+		                                	<li><a href="viewchain.action">View Chain</a></li>
+		                                 </s:if>
+		                              	 <s:if test="%{#session.role !='caadmin'}">
+		                              		<li><a href="audit.action">Audit Ledger</a></li>
+		                                 </s:if>			                                
+		                            </s:if>    
 	                            </ul>
 	                        </div> <!-- /.list-menu -->
 	                    </div> <!-- /.col-md-6 -->
 	                    
 	                </div> <!-- /.row -->
 	            </div> <!-- /.container -->
-	        </s:if>
+
         </div> <!-- /.main-nav -->
     </header> <!-- /.site-header -->
 
@@ -104,7 +110,7 @@ http://www.templatemo.com/preview/templatemo_428_kool_store
 	 					<s:actionmessage/>
 			   		</div>
 				</s:if>
-				<s:if test ="isLogin()">    
+				<s:if test="%{#session.login ==true}">    
                 <div class="col-md-3">
                     <div class="product-item-1">
                         <div class="product-thumb">
@@ -148,7 +154,7 @@ http://www.templatemo.com/preview/templatemo_428_kool_store
                 </s:if>
                 <div class="col-md-4">
                     <div class="product-item-3">
-                    	<s:if test="isLogin()"> 
+                    	<s:if test="%{#session.login ==true}">  
                     		<div class="product-thumb">
 	                            <img src="images/featured/6.jpg" alt="">
 	                        </div> <!-- /.product-thumb -->
@@ -199,7 +205,7 @@ http://www.templatemo.com/preview/templatemo_428_kool_store
 	                        </div><!--  /.product-content -->                    	
 						</s:if>
 						<s:else>
-	                        <div class="form-style-5">
+	                        <div class="form-style-5 full-row" >
 	                    		<s:if test="hasActionErrors()">
 								   <div class="errors">
 								      <s:actionerror/>
