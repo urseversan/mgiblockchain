@@ -10,11 +10,10 @@ import com.database.DataHelper;
  */
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.ActionInvocation;
+
 
 import java.util.Map;
-
-import org.apache.struts2.dispatcher.SessionMap;  
+ 
 import org.apache.struts2.interceptor.SessionAware;
 
 public class LoginAction extends ActionSupport implements Action, SessionAware{    
