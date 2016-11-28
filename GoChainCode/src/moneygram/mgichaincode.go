@@ -26,15 +26,15 @@ func main() {
 //	TransactionEvent - Defines the structure for a event object. JSON on right tells it what JSON fields to map to
 //			  that element when reading a JSON object into the struct e.g. JSON datetime -> Struct datetime.
 //==============================================================================================================================
-//type TransactionEvent struct {
-//	SenderName            string `json:"senderName"`
-//	SenderCountry         string `json:"senderCountry"`
-////	ReceiverName          string `json:"receiverName"`
-////	ReceiverCountry       string `json:"receiverCountry"`
-////	Amount		          string `json:"amount"`
-////	DateTime	          string `json:"datetime"`
-////	AccountNumber         string `json:"accountNumber"`
-//}
+type TransactionEvent struct {
+	SenderName            string `json:"senderName"`
+	SenderCountry         string `json:"senderCountry"`
+//	ReceiverName          string `json:"receiverName"`
+//	ReceiverCountry       string `json:"receiverCountry"`
+//	Amount		          string `json:"amount"`
+//	DateTime	          string `json:"datetime"`
+//	AccountNumber         string `json:"accountNumber"`
+}
 
 
 //==============================================================================================================================
@@ -60,16 +60,17 @@ func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface, function string
 //==============================================================================================================================
 //	Invoke - Called on chaincode invoke. Takes a function name passed and calls that function.
 //==============================================================================================================================
-//func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
-//	fmt.Println("invoke is running " + function)
-//
-//	// Handle different functions
-//	if function == "init" {													//initialize the chaincode state, used as reset
-//		return t.Init(stub, "init", args)
-//	}else if function == "create_event" {
+func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
+	fmt.Println("invoke is running " + function)
+
+	// Handle different functions
+	if function == "init" {													//initialize the chaincode state, used as reset
+		return t.Init(stub, "init", args)
+	}
+//	else if function == "create_event" {
 //        return t.create_event(stub, args)
 //	}
-//}
+}
 
 //=================================================================================================================================
 //	 Create Function
