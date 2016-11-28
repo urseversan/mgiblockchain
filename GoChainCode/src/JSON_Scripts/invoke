@@ -1,0 +1,18 @@
+{
+  "jsonrpc": "2.0",
+  "method": "invoke",
+  "params": {
+    "type": 1,
+    "chaincodeID": {
+      "name": "58a1c209586cb5f0be4615cccd65aa85e9a49eb148c5bd53b5f48490b34d1ad00bd3f9d2a3d9b0f5c4f2731acbf570462154de25c4a800cdbcf42700bcf9b6f0"
+    },
+    "ctorMsg": {
+      "function": "create_event",
+      "args": [
+        "Niranjan","USA"
+      ]
+    },
+    "secureContext": "user_type1_0"
+  },
+  "id": 0
+}
