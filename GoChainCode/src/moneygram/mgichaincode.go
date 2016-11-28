@@ -66,10 +66,9 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface, function stri
 	// Handle different functions
 	if function == "init" {													//initialize the chaincode state, used as reset
 		return t.Init(stub, "init", args)
+	}else if function == "create_event" {
+        return t.create_event(stub, args)
 	}
-//	else if function == "create_event" {
-//        return t.create_event(stub, args)
-//	}
 	return nil, errors.New("Received unknown function invocation: " + function)
 }
 
@@ -88,25 +87,25 @@ func (t *SimpleChaincode) Query(stub shim.ChaincodeStubInterface, function strin
 //=================================================================================================================================
 //	 Create Transaction Event - Creates the initial JSON for the Transaction Event and then saves it to the ledger.
 //=================================================================================================================================
-//func (t *SimpleChaincode) create_event(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
-//	var tEvent TransactionEvent
-//	
-//	senderName     		:= "\"SenderName\":\""+args[0]+"\", "
-//	senderCountry       := "\"SenderCountry\":\""+args[1]+"\", "
-//
-//	event_json := "{"+senderName+senderCountry+"}" 								// Concatenates the variables to create the total JSON object
-//	err = json.Unmarshal([]byte(event_json), &tEvent)							// Convert the JSON defined above into a TransactionEvent object for go
-//
-//	if err != nil { return nil, errors.New("Invalid JSON object") }
-//	
-//	bytes, err := json.Marshal(tEvent)
-//	if err != nil { fmt.Printf("SAVE_CHANGES: Error converting TransactionEvent record: %s", err); return false, errors.New("Error converting TransactionEvent record") }
-//
-//	err = stub.PutState("temp", bytes)
-//	if err != nil { fmt.Printf("SAVE_CHANGES: Error storing TransactionEvent record: %s", err); return false, errors.New("Error storing TransactionEvent record") }
-//
-//	return true, nil 
-//}
+func (t *SimpleChaincode) create_event(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
+	var tEvent TransactionEvent
+	
+	senderName     		:= "\"SenderName\":\""+args[0]+"\", "
+	senderCountry       := "\"SenderCountry\":\""+args[1]+"\", "
+
+	event_json := "{"+senderName+senderCountry+"}" 								// Concatenates the variables to create the total JSON object
+	err = json.Unmarshal([]byte(event_json), &tEvent)							// Convert the JSON defined above into a TransactionEvent object for go
+
+	if err != nil { return nil, errors.New("Invalid JSON object") }
+	
+	bytes, err := json.Marshal(tEvent)
+	if err != nil { fmt.Printf("SAVE_CHANGES: Error converting TransactionEvent record: %s", err); return false, errors.New("Error converting TransactionEvent record") }
+
+	err = stub.PutState("temp", bytes)
+	if err != nil { fmt.Printf("SAVE_CHANGES: Error storing TransactionEvent record: %s", err); return false, errors.New("Error storing TransactionEvent record") }
+
+	return true, nil 
+}
 
 
 //=================================================================================================================================
