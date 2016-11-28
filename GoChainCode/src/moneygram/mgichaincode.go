@@ -99,10 +99,16 @@ func (t *SimpleChaincode) create_event(stub shim.ChaincodeStubInterface, args []
 	if err != nil { return nil, errors.New("Invalid JSON object") }
 	
 	bytes, err := json.Marshal(tEvent)
-	if err != nil { fmt.Printf("SAVE_CHANGES: Error converting TransactionEvent record: %s", err); return false, errors.New("Error converting TransactionEvent record") }
+	if err != nil { 
+		fmt.Printf("SAVE_CHANGES: Error converting TransactionEvent record: %s", err); 
+		return nil, errors.New("Error converting TransactionEvent record") 
+	}
 
 	err = stub.PutState("temp", bytes)
-	if err != nil { fmt.Printf("SAVE_CHANGES: Error storing TransactionEvent record: %s", err); return false, errors.New("Error storing TransactionEvent record") }
+	if err != nil { 
+		fmt.Printf("SAVE_CHANGES: Error storing TransactionEvent record: %s", err); 
+		return nil, errors.New("Error storing TransactionEvent record") 
+	}
 
 	return nil, nil 
 }
