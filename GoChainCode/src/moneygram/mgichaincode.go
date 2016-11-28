@@ -74,6 +74,15 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface, function stri
 }
 
 //=================================================================================================================================
+//	Query - Called on chaincode query. Takes a function name passed and calls that function. Passes the
+//  		initial arguments passed are passed on to the called function.
+//=================================================================================================================================
+func (t *SimpleChaincode) Query(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
+	fmt.Println("Query is running " + function)
+	
+}
+
+//=================================================================================================================================
 //	 Create Function
 //=================================================================================================================================
 //	 Create Transaction Event - Creates the initial JSON for the Transaction Event and then saves it to the ledger.
