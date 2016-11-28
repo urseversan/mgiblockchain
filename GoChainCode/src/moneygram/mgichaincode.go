@@ -70,6 +70,7 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface, function stri
 //	else if function == "create_event" {
 //        return t.create_event(stub, args)
 //	}
+	return nil, errors.New("Received unknown function invocation: " + function)
 }
 
 //=================================================================================================================================
