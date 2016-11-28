@@ -15,6 +15,13 @@ import (
 type  SimpleChaincode struct {
 }
 
+func main() {
+	err := shim.Start(new(SimpleChaincode))
+	if err != nil {
+		fmt.Printf("Error starting Simple chaincode: %s", err)
+	}
+}
+
 //==============================================================================================================================
 //	TransactionEvent - Defines the structure for a event object. JSON on right tells it what JSON fields to map to
 //			  that element when reading a JSON object into the struct e.g. JSON datetime -> Struct datetime.
@@ -34,6 +41,8 @@ type  SimpleChaincode struct {
 //	Init Function - Called when the user deploys the chaincode
 //==============================================================================================================================
 func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
+	fmt.Println("invoke Init Method")
+	  
     if len(args) != 1 {
         return nil, errors.New("Incorrect number of arguments. Expecting 1")
     }
@@ -42,7 +51,6 @@ func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface, function string
     if err != nil {
         return nil, err
     }
-    fmt.Println("invoke Init Method")
 	
     return nil, nil
 }
