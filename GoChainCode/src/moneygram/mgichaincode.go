@@ -132,7 +132,7 @@ func (t *SimpleChaincode) retrieve_tranEvent(stub shim.ChaincodeStubInterface, t
 
 	if err != nil {	
 		fmt.Printf("retrieve_tranEvent: Failed to retrieving TransactionEvent: %s", err); 
-		return tranEvent, errors.New("retrieve_tranEvent: Error retrieving TransactionEvent with tranEventID = " + v5cID) 
+		return tranEvent, errors.New("retrieve_tranEvent: Error retrieving TransactionEvent with tranEventID = " + tranEventID) 
 	}
 
 	err = json.Unmarshal(bytes, &tranEvent);
