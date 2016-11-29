@@ -174,7 +174,7 @@ func (t *SimpleChaincode) create_event(stub shim.ChaincodeStubInterface, args []
 	}
 
 	// Save new tran event record
-	err = stub.PutState(v.TranID, bytes)
+	err = stub.PutState(tEvent.TranID, bytes)
 	if err != nil { 
 		fmt.Printf("create_event: Error storing transaction event: %s", err); 
 		return nil, errors.New("Error storing transaction event") 
