@@ -107,13 +107,15 @@ func (t *SimpleChaincode) Query(stub shim.ChaincodeStubInterface, function strin
 			return nil, errors.New("QUERY: Incorrect number of arguments passed") 
 		}
 		
-		v, err := t.retrieve_tranEvent(stub, args[0])
+		tranEvent, err := t.retrieve_tranEvent(stub, args[0])
 		if err != nil { 
 			fmt.Printf("QUERY: Error retrieving tranEvent: %s", err); 
 			return nil, errors.New("QUERY: Error retrieving tranEvent "+err.Error()) 
 		}
 		
-		return t.get_vehicle_details(stub, v)
+		bytes, err := json.Marshal(tranEvent)
+		
+		return bytes, nil
 	}
 
 	return nil, errors.New("Received unknown function invocation " + function)
