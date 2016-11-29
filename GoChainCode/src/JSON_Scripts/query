@@ -4,12 +4,12 @@
   "params": {
     "type": 1,
     "chaincodeID": {
-      "name": "58a1c209586cb5f0be4615cccd65aa85e9a49eb148c5bd53b5f48490b34d1ad00bd3f9d2a3d9b0f5c4f2731acbf570462154de25c4a800cdbcf42700bcf9b6f0"
+      "name": "23fd9f0b95f9587522eabd079318853be1bdfc6177e0220720527251f6cc0181f768ac1f89f1285f89160738c2187e606cb797de3305d01c84dffde417481911"
     },
     "ctorMsg": {
       "function": "query",
       "args": [
-        "senderName"
+        "tr1"
       ]
     },
     "secureContext": "user_type1_0"

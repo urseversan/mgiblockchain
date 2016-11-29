@@ -202,23 +202,6 @@ func (t *SimpleChaincode) retrieve_v5c(stub shim.ChaincodeStubInterface, v5cID s
 }
 
 //==============================================================================================================================
-// save_changes - Writes to the ledger the Vehicle struct passed in a JSON format. Uses the shim file's
-//				  method 'PutState'.
-//==============================================================================================================================
-func (t *SimpleChaincode) save_changes(stub shim.ChaincodeStubInterface, v Vehicle) (bool, error) {
-
-	bytes, err := json.Marshal(v)
-
-	if err != nil { fmt.Printf("SAVE_CHANGES: Error converting vehicle record: %s", err); return false, errors.New("Error converting vehicle record") }
-
-	err = stub.PutState(v.V5cID, bytes)
-
-	if err != nil { fmt.Printf("SAVE_CHANGES: Error storing vehicle record: %s", err); return false, errors.New("Error storing vehicle record") }
-
-	return true, nil
-}
-
-//==============================================================================================================================
 //	 Router Functions
 //==============================================================================================================================
 //	Invoke - Called on chaincode invoke. Takes a function name passed and calls that function. Converts some
@@ -308,6 +291,23 @@ func (t *SimpleChaincode) Query(stub shim.ChaincodeStubInterface, function strin
 //=================================================================================================================================
 func (t *SimpleChaincode) ping(stub shim.ChaincodeStubInterface) ([]byte, error) {
 	return []byte("Hello, world!"), nil
+}
+
+//==============================================================================================================================
+// save_changes - Writes to the ledger the Vehicle struct passed in a JSON format. Uses the shim file's
+//				  method 'PutState'.
+//==============================================================================================================================
+func (t *SimpleChaincode) save_changes(stub shim.ChaincodeStubInterface, v Vehicle) (bool, error) {
+
+	bytes, err := json.Marshal(v)
+
+	if err != nil { fmt.Printf("SAVE_CHANGES: Error converting vehicle record: %s", err); return false, errors.New("Error converting vehicle record") }
+
+	err = stub.PutState(v.V5cID, bytes)
+
+	if err != nil { fmt.Printf("SAVE_CHANGES: Error storing vehicle record: %s", err); return false, errors.New("Error storing vehicle record") }
+
+	return true, nil
 }
 
 //=================================================================================================================================
