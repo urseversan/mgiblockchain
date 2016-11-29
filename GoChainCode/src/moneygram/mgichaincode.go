@@ -161,7 +161,7 @@ func (t *SimpleChaincode) create_event(stub shim.ChaincodeStubInterface, args []
 	amount     			:= "\"Amount\":\""+args[5]+"\", "
 
     // Concatenates the variables to create the total JSON object
-	event_json := "{"+senderName+senderCountry+receiverName+receiverCountry+amount"}" 		
+	event_json := "{"+tranID+senderName+senderCountry+receiverName+receiverCountry+amount"}" 		
 	// Convert the JSON defined above into a TransactionEvent object for go
 	err := json.Unmarshal([]byte(event_json), &tEvent)										
 	if err != nil { 
@@ -181,7 +181,7 @@ func (t *SimpleChaincode) create_event(stub shim.ChaincodeStubInterface, args []
 	}
 
 	// Update tranIDs with newly created ID and store it in chain.
-	bytes, err := stub.GetState("tranIDs")
+	bytes, err = stub.GetState("tranIDs")
 	if err != nil { 
 		return nil, errors.New("Unable to get tranIDs") 
 	}
