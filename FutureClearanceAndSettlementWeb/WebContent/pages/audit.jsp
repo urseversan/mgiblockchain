@@ -1,4 +1,5 @@
 <%@ taglib uri="/struts-tags" prefix="s" %> 
+
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -146,6 +147,20 @@ http://www.templatemo.com/preview/templatemo_428_kool_store
             </div> <!-- /.row -->            
         </div> <!-- /.container -->
     </div> <!-- /.content-section -->
+    
+    <!-- Dummy data will be removed when integrated with JSP changes -->
+    <s:iterator value="transactionList">
+		<p>
+			Transactions : <s:property value="senderName"/> ,
+				 		 <s:property value="senderCountryName"/>,
+				 		 <s:property value="receiverName"/> ,
+				 		 <s:property value="receiverCountryName"/> ,
+				 		 <s:property value="amount"/> ,
+				 		 <s:property value="dateTime"/> ,
+				 		 <s:property value="depositAccountNumber"/> 
+		</p>
+		<br></br>
+	</s:iterator>
 
  <footer class="site-footer">        
         <div class="bottom-footer">

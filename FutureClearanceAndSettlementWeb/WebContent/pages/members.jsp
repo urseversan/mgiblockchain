@@ -146,6 +146,16 @@ http://www.templatemo.com/preview/templatemo_428_kool_store
             </div> <!-- /.row -->            
         </div> <!-- /.container -->
     </div> <!-- /.content-section -->
+    
+    <!-- Dummy data will be removed when integrated with JSP changes -->
+    <s:iterator value="membersList">
+		<p>
+			Members : 	 <s:property value="memberName"/> ,
+				 		 <s:property value="memberLogoFileName"/>,
+				 		 <s:property value="memberDetails"/> 
+		</p>
+		<br></br>
+	</s:iterator>
 
  <footer class="site-footer">        
         <div class="bottom-footer">
