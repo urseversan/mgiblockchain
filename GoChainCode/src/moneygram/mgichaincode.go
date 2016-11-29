@@ -99,8 +99,6 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface, function stri
 func (t *SimpleChaincode) Query(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
 	fmt.Println("Query is running " + function)
 	
-	var err error
-	
 	if function == "get_event_details" {
 		if len(args) != 1 { 
 			fmt.Printf("Incorrect number of arguments passed"); 
