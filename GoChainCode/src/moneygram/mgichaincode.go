@@ -124,7 +124,7 @@ func (t *SimpleChaincode) Query(stub shim.ChaincodeStubInterface, function strin
 //					JSON into the TransactionEvent struct for use in the contract. Returns the TransactionEvent struct.
 //					Returns empty TransactionEvent if it errors.
 //==============================================================================================================================
-func (t *SimpleChaincode) retrieve_tranEvent(stub shim.ChaincodeStubInterface, tranEventID string) (Vehicle, error) {
+func (t *SimpleChaincode) retrieve_tranEvent(stub shim.ChaincodeStubInterface, tranEventID string) (TransactionEvent, error) {
 
 	var tranEvent TransactionEvent
 
