@@ -161,7 +161,7 @@ func (t *SimpleChaincode) create_event(stub shim.ChaincodeStubInterface, args []
 	amount     			:= "\"Amount\":\""+args[5]+"\", "
 
     // Concatenates the variables to create the total JSON object
-	event_json := "{"+tranID+senderName+senderCountry+receiverName+receiverCountry+amount"}" 		
+	event_json := "{"+tranID+senderName+senderCountry+receiverName+receiverCountry+amount+"}" 		
 	// Convert the JSON defined above into a TransactionEvent object for go
 	err := json.Unmarshal([]byte(event_json), &tEvent)										
 	if err != nil { 
