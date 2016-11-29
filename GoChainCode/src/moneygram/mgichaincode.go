@@ -97,8 +97,6 @@ func (t *SimpleChaincode) Query(stub shim.ChaincodeStubInterface, function strin
 	}
 
 	return valAsbytes, nil
-	
-	return nil, errors.New("Received unknown function invocation: " + function)
 }
 
 //=================================================================================================================================
