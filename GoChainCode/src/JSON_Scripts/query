@@ -1,0 +1,18 @@
+{
+  "jsonrpc": "2.0",
+  "method": "query",
+  "params": {
+    "type": 1,
+    "chaincodeID": {
+      "name": "23fd9f0b95f9587522eabd079318853be1bdfc6177e0220720527251f6cc0181f768ac1f89f1285f89160738c2187e606cb797de3305d01c84dffde417481911"
+    },
+    "ctorMsg": {
+      "function": "query",
+      "args": [
+        "tr1"
+      ]
+    },
+    "secureContext": "user_type1_0"
+  },
+  "id": 0
+}
