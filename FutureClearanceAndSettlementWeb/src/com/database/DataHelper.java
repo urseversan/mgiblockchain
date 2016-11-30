@@ -61,5 +61,17 @@ public class DataHelper {
 		
 		return dataList;
 	}
+	
+	public static void applyChainID(String chainId) {
+		System.out.println("Submitted Chain ID = "+chainId);
+	}
+	
+	public static void applyChainURL(String chainURL) {
+		System.out.println("Submitted Chain URL = "+chainURL);
+	}
+	
+	public static void publishTransaction(String transactionXML) {
+		System.out.println("Submitted Transaction XML = "+transactionXML);
+	}
 
 }
